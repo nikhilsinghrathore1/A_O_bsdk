@@ -10,10 +10,9 @@ import { ConnectButton, useConnection } from 'arweave-wallet-kit'
 function App() {
   const [downgradedPerformance, setDowngradedPerformance] = useState(false);
   const { connected } = useConnection();
-console.log(connected);
+
   return (
     <>
-
       {
         connected ? (
           <>
@@ -26,7 +25,6 @@ console.log(connected);
             >
               <color attach="background" args={["#242424"]} />
               <SoftShadows size={42} />
-
               <PerformanceMonitor
                 // Detect low performance devices
                 onDecline={(fps) => {
@@ -46,7 +44,10 @@ console.log(connected);
               )}
             </Canvas>
           </>) : (
-          <ConnectButton profileModal={true} showBalance={true} showAddress={false} showProfilePicture={false} />
+            <div className="flex justify-center items-center h-screen bg-slate-600 " >
+
+          <ConnectButton profileModal={true} showBalance={true} showAddress={true} showProfilePicture={false} />
+            </div>
         )
       }
     </>
